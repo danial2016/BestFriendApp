@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BestFriendApp</string>
+    <item type="id" name="btnTag" />
+</resources>

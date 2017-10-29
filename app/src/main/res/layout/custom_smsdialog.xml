@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/customAlertView"
+    android:layout_width="wrap_content"
+    android:layout_height="175dp">
+
+    <EditText
+        android:id="@+id/edtSmsMsg"
+        android:layout_width="200dp"
+        android:layout_height="52dp"
+        android:hint="Enter message"
+        android:inputType="textPersonName"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btn_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send"
+        android:layout_below="@+id/edtSmsMsg"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_marginTop="14dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="Send SMS"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/edtSmsMsg"
+        android:layout_marginTop="12dp" />
+
+</RelativeLayout>
