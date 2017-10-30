@@ -36,6 +36,22 @@ public class FriendsInfo {
         }
         mArray.put(obj);
     }
+
+    public boolean check(String name){
+        try{
+            for (int i = 0; i < mArray.length(); i++) {
+                JSONObject obj = mArray.getJSONObject(i);
+                Friend friend = new Friend(obj.getString("name"), obj.getString("phoneNumber"), obj.getString("email"));
+                if(friend.getName().equals(name)){
+                    return true;
+                }
+            }
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     /*
     Once this method has been called make sure to call setFriends() and update the UI
      */

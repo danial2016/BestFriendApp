@@ -1,92 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/image2"
     tools:context="com.example.daniel.bestfriendapp.MainActivity">
 
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
+        android:layout_alignParentStart="true"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp" />
 
     <Button
         android:id="@+id/btnAddContact"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/list_view"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="132dp"
-        android:layout_marginTop="343dp"
-        android:text="Add contact"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="132dp" />
-
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="75dp"
-        android:layout_height="38dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="37dp"
-        android:text="Name"
-        android:visibility="invisible"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="16dp" />
-
-    <Button
-        android:id="@+id/btnCall"
-        android:layout_width="67dp"
-        android:layout_height="39dp"
-        android:layout_marginLeft="202dp"
-        android:layout_marginTop="37dp"
-        android:text="Call"
-        android:visibility="invisible"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="202dp" />
-
-    <TextView
-        android:id="@+id/tvName2"
-        android:layout_width="94dp"
-        android:layout_height="55dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="132dp"
-        android:text="TextView"
-        android:visibility="invisible"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="16dp" />
-
-    <Button
-        android:id="@+id/btnCall2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="244dp"
-        android:layout_marginTop="132dp"
-        android:text="Call"
-        android:visibility="invisible"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="244dp" />
-
-    <Button
-        android:id="@+id/btnSms"
-        android:layout_width="61dp"
-        android:layout_height="37dp"
-        android:layout_marginLeft="132dp"
-        android:layout_marginTop="37dp"
-        android:text="SMS"
-        android:visibility="invisible"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="132dp" />
-
-    <Button
-        android:id="@+id/btnEmail"
-        android:layout_width="78dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="290dp"
-        android:layout_marginStart="277dp"
-        android:layout_marginTop="37dp"
-        android:text="Email"
-        android:visibility="invisible"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/background_addfriend_button"
+        android:text="Add a friend"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -94,11 +35,14 @@
         android:id="@+id/btnRemove"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginLeft="132dp"
-        android:layout_marginTop="84dp"
-        android:text="Remove"
+        android:layout_marginStart="132dp"
+        android:text="Remove contact"
         android:visibility="invisible"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
+
