@@ -32,8 +32,9 @@ public class ViewDialog {
                 if(msg.length() > 0){
                     sendSMS(phoneNumber, msg);
                     Toast.makeText(activity, "SMS has been sent", Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
                 }else{
-                    Toast.makeText(activity, "FOOL!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "Failed to send SMS", Toast.LENGTH_SHORT).show();
                 }
             }
         });
