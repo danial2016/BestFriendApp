@@ -87,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
             //request permission from user if the app hasn't got the required permission
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{android.Manifest.permission.CALL_PHONE},   //request specific permission from user
                     10);
-            return;
         }else {     //have got permission
             try{
                 Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNumber));
@@ -135,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(this, "Friend saved!", Toast.LENGTH_SHORT).show();
                     setFriends();
                 }
+                cursor.close();
 
             }
         }
