@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 /**
- * Created by Daniel on 2017-10-29.
+ * Created by Mardokh on 2017-10-29.
  */
 
 public class EmailDialog {

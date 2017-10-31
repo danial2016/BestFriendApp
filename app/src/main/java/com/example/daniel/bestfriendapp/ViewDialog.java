@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 /**
- * Created by Daniel on 2017-10-28.
+ * Created by Namra on 2017-10-28.
  */
 
 public class ViewDialog {

@@ -33,11 +33,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String FRIEND_PREF = "FriendPref";
     private static final int READ_CONTACTS_PERMISSIONS_REQUEST = 1;
 
-    //private TextView tvName, tvName2;
-    //private Button btnCall, btnCall2, btnSMS, btnEmail, btnRemove;
     private FriendsInfo friendsInfo;
-    //private EditText textMessage;
-    private Button btnAddContact, btnRemove;
+    private Button btnAddContact;
     private ListView listView;
 
     @Override

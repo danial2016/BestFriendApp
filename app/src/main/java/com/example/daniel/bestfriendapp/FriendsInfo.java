@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 /**
  * Created by Daniel on 2017-10-27.
+ * This class serves as a protocl for the information about a friend that is
+ * added to the app.
  */
 
 public class FriendsInfo {
@@ -17,6 +19,10 @@ public class FriendsInfo {
         mArray = new JSONArray();
     }
 
+    /*
+    This function takes a JSON-array as parameter which contains all the Friend-objects
+    and sets it to the global class variable.
+     */
     public void setFriends(String jsonArray) {
         try{
             mArray = new JSONArray(jsonArray);
@@ -24,6 +30,15 @@ public class FriendsInfo {
             e.printStackTrace();
         }
     }
+
+    /*
+    Add a friend to the JSON-array of friends.
+    This method works like a protocol. A friend has the following attributes:
+    - name,
+    - phoneNumber,
+    - email
+    This information is utilized by the application.
+     */
 
     public void addFriend(Friend friend){
         JSONObject obj = new JSONObject();
@@ -36,6 +51,11 @@ public class FriendsInfo {
         }
         mArray.put(obj);
     }
+
+    /*
+    Check if a friend already exists in the list.
+    Used to assure that a friend is not added twice.
+     */
 
     public boolean check(String name){
         try{
@@ -53,7 +73,8 @@ public class FriendsInfo {
     }
 
     /*
-    Once this method has been called make sure to call setFriends() and update the UI
+    Removes a friend from the JSON-array list
+    Note: once this method has been invoked make sure to call setFriends() and update the UI
      */
     public void removeFriend(String name){
         try{
@@ -74,6 +95,9 @@ public class FriendsInfo {
         return mArray.toString();
     }
 
+    /*
+    Returns an Arraylist of friends
+     */
     public ArrayList<Friend> getFriends() {
         ArrayList<Friend> list = new ArrayList<Friend>();
         try{
