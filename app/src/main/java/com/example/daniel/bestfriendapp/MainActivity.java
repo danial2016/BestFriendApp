@@ -1,5 +1,6 @@
 package com.example.daniel.bestfriendapp;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,7 +8,9 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -28,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_CODE = 1;
     private static final String MY_PREFS_NAME = "MyPrefs";
     private static final String FRIEND_PREF = "FriendPref";
+    private static final int READ_CONTACTS_PERMISSIONS_REQUEST = 1;
+
     //private TextView tvName, tvName2;
     //private Button btnCall, btnCall2, btnSMS, btnEmail, btnRemove;
     private FriendsInfo friendsInfo;
@@ -39,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.SEND_SMS},1);
+        getPermissionToReadUserContacts();
         friendsInfo = new FriendsInfo();
         initializeComponents();
         registerButtonListener();
@@ -85,8 +92,7 @@ public class MainActivity extends AppCompatActivity {
     private void callNumber(String phoneNumber){
         if (ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             //request permission from user if the app hasn't got the required permission
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{android.Manifest.permission.CALL_PHONE},   //request specific permission from user
-                    10);
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{android.Manifest.permission.CALL_PHONE}, 10);//request specific permission from user
         }else {     //have got permission
             try{
                 Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNumber));
@@ -219,7 +225,6 @@ public class MainActivity extends AppCompatActivity {
                             editor.apply();
                             setFriends();
                             Toast.makeText(MainActivity.this,"Friend has been removed",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(MainActivity.this, MainActivity.class));
                         }
                     });
                     builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -289,5 +294,52 @@ public class MainActivity extends AppCompatActivity {
             return view;
         }
     }
+
+    public void getPermissionToReadUserContacts() {
+        // 1) Use the support library version ContextCompat.checkSelfPermission(...) to avoid
+        // checking the build version since Context.checkSelfPermission(...) is only available
+        // in Marshmallow
+        // 2) Always check for permission (even if permission has already been granted)
+        // since the user can revoke permissions at any time through Settings
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // The permission is NOT already granted.
+            // Check if the user has been asked about this permission already and denied
+            // it. If so, we want to give more explanation about why the permission is needed.
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (shouldShowRequestPermissionRationale(Manifest.permission.READ_CONTACTS)) {
+                    // Show our own UI to explain to the user why we need to read the contacts
+                    // before actually requesting the permission and showing the default UI
+                }
+            }
+
+            // Fire off an async request to actually get the permission
+            // This will show the standard permission request dialog UI
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                requestPermissions(new String[]{Manifest.permission.READ_CONTACTS},
+                        READ_CONTACTS_PERMISSIONS_REQUEST);
+            }
+        }
+    }
+
+    // Callback with the request from calling requestPermissions(...)
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String permissions[],
+                                           @NonNull int[] grantResults) {
+        // Make sure it's our original READ_CONTACTS request
+        if (requestCode == READ_CONTACTS_PERMISSIONS_REQUEST) {
+            if (grantResults.length == 1 &&
+                    grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                //Toast.makeText(this, "Read Contacts permission granted", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Read Contacts permission denied", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
+
 
 }

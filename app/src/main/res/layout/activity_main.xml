@@ -5,44 +5,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/image2"
+    android:background="@drawable/colorfulimage"
     tools:context="com.example.daniel.bestfriendapp.MainActivity">
 
-    <ListView
-        android:id="@+id/list_view"
+    <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="400dp"
-        android:layout_alignParentStart="true"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp" />
+        android:layout_height="wrap_content"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <ListView
+                android:id="@+id/list_view"
+                android:layout_width="wrap_content"
+                android:layout_height="350dp"
+                android:layout_alignParentStart="true"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="8dp" />
+
+            <Button
+                android:id="@+id/btnRemove"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="132dp"
+                android:layout_marginStart="132dp"
+                android:text="Remove contact"
+                android:visibility="invisible"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </RelativeLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/btnAddContact"
-        android:layout_width="150dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/list_view"
-        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="48dp"
         android:layout_marginLeft="132dp"
-        android:layout_marginTop="22dp"
         android:background="@drawable/background_addfriend_button"
         android:text="Add a friend"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnRemove"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginLeft="132dp"
-        android:layout_marginStart="132dp"
-        android:text="Remove contact"
-        android:visibility="invisible"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
 

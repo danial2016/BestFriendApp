@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <TextView
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
@@ -19,7 +20,7 @@
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_centerVertical="true"
-        android:layout_marginStart="34dp"
+        android:layout_marginStart="10dp"
         android:layout_toEndOf="@+id/btnEmail"
         android:background="@drawable/call" />
     <Button
@@ -28,14 +29,14 @@
         android:layout_height="35dp"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="115dp"
+        android:layout_marginStart="205dp"
         android:background="@drawable/ic_launcher_email" />
     <Button
         android:id="@+id/btnSms"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_centerVertical="true"
-        android:layout_marginStart="39dp"
+        android:layout_marginStart="10dp"
         android:layout_toEndOf="@+id/btnCall"
         android:background="@drawable/sms" />
 
@@ -44,9 +45,11 @@
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_alignBottom="@+id/btnSms"
-        android:layout_marginStart="19dp"
+        android:layout_marginStart="2dp"
         android:layout_toEndOf="@+id/btnSms"
         android:background="@drawable/ic_launcher_delete" />
 
 
 </RelativeLayout>
+
+
